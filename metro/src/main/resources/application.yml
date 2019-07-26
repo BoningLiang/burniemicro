@@ -1,0 +1,9 @@
+server:
+  port: 8087
+spring:
+  application:
+    name: metro
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:1111/eureka/,http://peer2:1112/eureka/
