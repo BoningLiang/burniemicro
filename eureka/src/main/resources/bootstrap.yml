@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: peer1
+  cloud:
+    config:
+      fail-fast: true
+      name: eureka-peer1
+      profile: peer1
+      uri: http://localhost:7001

@@ -20,8 +20,9 @@
         <module>eureka</module>
         <module>metro</module>
         <module>common</module>
+        <module>robbincustomer</module>
         <module>config</module>
-        <module>metrobaidu</module>
+        <module>gateway</module>
     </modules>
 
     <properties>
@@ -48,5 +49,13 @@
 
         </dependencies>
     </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>aliyun</id>
+            <name>aliyun</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+        </repository>
+    </repositories>
 
 </project>
