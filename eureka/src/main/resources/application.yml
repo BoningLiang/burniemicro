@@ -1,15 +1,13 @@
-server:
-  port: 8888
 spring:
   application:
     name: eureka-server
-  security:
-    user:
-      name: eureka
-      password: eureka
+server:
+  port: 1111
 eureka:
+  instance:
+    hostname: peer1
   client:
     register-with-eureka: false
     fetch-registry: false
-    service-url:
-      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@localhost:${server.port}/eureka/
+#    service-url:
+#      defaultZone: http://peer2:1112/eureka-server

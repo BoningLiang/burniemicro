@@ -16,6 +16,18 @@
 		<java.version>1.8</java.version>
 	</properties>
 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
 		<!--服务中心-->
 		<dependency>
@@ -38,14 +50,14 @@
 			<artifactId>spring-boot-starter-undertow</artifactId>
 		</dependency>
 		<!--监控客户端-->
-		<dependency>
+		<!--dependency>
 			<groupId>de.codecentric</groupId>
 			<artifactId>spring-boot-admin-starter-client</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.github.ulisesbocchio</groupId>
 			<artifactId>jasypt-spring-boot-starter</artifactId>
-		</dependency>
+		</dependency-->
 
 		<!--<dependency>-->
 			<!--<groupId>org.slf4j</groupId>-->

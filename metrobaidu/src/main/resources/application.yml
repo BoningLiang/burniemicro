@@ -1,0 +1,25 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: metrobaidu
+  datasource:
+    url: localhost:3306/password
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password:
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:1111/eureka/
+baidu:
+  map:
+    api-url:
+      china:
+        v2:
+          search: http://api.map.baidu.com/place/v2/search
+          detail: http://api.map.baidu.com/place/v2/detail
+      abroad:
+        v1:
+          search: http://api.map.baidu.com/place_abroad/v1/search
+          detail: http://api.map.baidu.com/place_abroad/v1/detail
