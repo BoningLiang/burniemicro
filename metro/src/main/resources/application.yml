@@ -5,9 +5,13 @@ spring:
     name: metro
   datasource:
     url: jdbc:mysql://39.98.191.147:3306/metro?characterEncoding=utf8&useSSL=true
-    username: beacon
-    password: LBNlc.327712576
+    username: ENC(gm48/flkFe9hDT2Usl3ytA==)
+    password: ENC(uThfyToshkSVCsOA9vV27nIUSNJ46axK)
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:1111/eureka/
+
+jasypt:
+  encryptor:
+    password: metro
