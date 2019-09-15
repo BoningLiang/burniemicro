@@ -3,7 +3,11 @@ server:
 spring:
   application:
     name: metro
+  datasource:
+    url: jdbc:mysql://39.98.191.147:3306/metro?characterEncoding=utf8&useSSL=true
+    username: beacon
+    password: LBNlc.327712576
 eureka:
   client:
     service-url:
-      defaultZone: http://peer1:1111/eureka/,http://peer2:1112/eureka/
+      defaultZone: http://localhost:1111/eureka/
