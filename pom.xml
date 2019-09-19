@@ -7,7 +7,7 @@
     <groupId>edu.auburn.bzl0048</groupId>
     <artifactId>burnie-micro</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -15,11 +15,10 @@
         <version>2.1.6.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    
+
     <modules>
         <module>eureka</module>
         <module>metro</module>
-        <module>common</module>
         <module>config</module>
         <module>gateway</module>
         <module>metrobaidu</module>

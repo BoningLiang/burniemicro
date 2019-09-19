@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>edu.auburn.bzl0048</groupId>
 		<artifactId>burnie-micro</artifactId>
-		<version>1.0-SNAPSHOT</version>
+		<version>1.0.0</version>
 	</parent>
 	<artifactId>eureka</artifactId>
 	<!--<version>0.0.1-SNAPSHOT</version>-->
@@ -29,6 +29,18 @@
 	</dependencyManagement>
 
 	<dependencies>
+		<!--web 模块-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<!--排除tomcat依赖-->
+				<exclusion>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+					<groupId>org.springframework.boot</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 		<!--服务中心-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -79,8 +91,28 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>edu.auburn.bzl0048.eureka.EurekaServerApplication</mainClass>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
 
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<profiles.active>dev</profiles.active>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<profiles.active>prod</profiles.active>
+			</properties>
+		</profile>
+	</profiles>
 </project>

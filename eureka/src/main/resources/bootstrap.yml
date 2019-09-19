@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: ${spring.active}
+  cloud:
+    config:
+      fail-fast: true
+      name: eureka
+      profile: dev
+      uri: http://39.98.191.147/config/
+      label: master
