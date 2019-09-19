@@ -8,15 +8,15 @@ spring:
       profile: dev
       uri: http://39.98.191.147/config/
       label: master
-server:
-  port: 1111
-eureka:
-  instance:
-    hostname: 39.98.191.147
-  client:
-    register-with-eureka: false
-    fetch-registry: false
-    service-url:
-      defaultZone: http://39.98.191.147/eureka/
-  dashboard:
-    path: "/eureka"
+#server:
+#  port: 1111
+#eureka:
+#  instance:
+#    hostname: 39.98.191.147
+#  client:
+#    register-with-eureka: false
+#    fetch-registry: false
+#    service-url:
+#      defaultZone: http://39.98.191.147/eureka/
+#  dashboard:
+#    path: "/eureka"
