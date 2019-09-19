@@ -1,7 +1,0 @@
-spring:
-  cloud:
-    config:
-      fail-fast: true
-      name: eureka
-      profile: prod
-      uri: http://localhost:7001

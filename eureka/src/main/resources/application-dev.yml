@@ -1,9 +1,0 @@
-spring:
-  profiles:
-    active: peer1
-  cloud:
-    config:
-      fail-fast: true
-      name: eureka
-      profile: prod
-      uri: http://39.98.191.147/config

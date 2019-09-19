@@ -70,4 +70,7 @@ workspace /var/lib/jenkins/workspace
 ps -aux --sort=+%mem
 free -m
 ```
-
+Permission denied
+``` bash
+chmod u+x example.sh
+```
