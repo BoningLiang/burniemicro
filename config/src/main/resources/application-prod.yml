@@ -9,3 +9,5 @@ spring:
         git:
           uri: http://39.98.191.147/gitlab/liangboning/config-repo.git
           search-paths: /**
+          username: liangboning
+          password: lbnlc327712576
