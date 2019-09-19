@@ -20,3 +20,6 @@ spring:
 #      defaultZone: http://39.98.191.147/eureka/
 #  dashboard:
 #    path: "/eureka"
+eureka:
+  dashboard:
+    path: "/eureka"
