@@ -80,6 +80,7 @@
             <artifactId>jasypt-spring-boot-starter</artifactId>
             <version>${jasypt.version}</version>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -90,5 +91,13 @@
             </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>nexus</id>
+            <name>Nexus私服</name>
+            <url>http://192.168.10.108/nexus/repository/cjbdi-host/</url>
+        </repository>
+    </distributionManagement>
 
 </project>

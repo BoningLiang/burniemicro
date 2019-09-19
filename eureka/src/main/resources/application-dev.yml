@@ -4,6 +4,6 @@ spring:
   cloud:
     config:
       fail-fast: true
-      name: eureka-peer1
-      profile: peer1
-      uri: http://localhost:7001
+      name: eureka
+      profile: prod
+      uri: http://39.98.191.147/config

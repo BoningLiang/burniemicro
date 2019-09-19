@@ -7,5 +7,5 @@ spring:
     config:
       server:
         git:
-          uri: http://39.98.191.147:5050/liangboning/config-repo.git
+          uri: http://39.98.191.147/gitlab/liangboning/config-repo.git
           search-paths: /**
