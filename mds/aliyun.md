@@ -74,3 +74,14 @@ Permission denied
 ``` bash
 chmod u+x example.sh
 ```
+
+
+# Windows
+ > Jenkins 启动/关闭
+
+ - 用管理员身份启动cmd，否则执行命令报错：否则会报系统错误5
+ - 进入jenkins安装根目录
+``` bash
+net start jenkins
+net stop jenkins
+```
