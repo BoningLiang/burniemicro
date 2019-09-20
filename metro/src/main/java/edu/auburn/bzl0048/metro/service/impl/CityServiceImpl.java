@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  * @author liangboning
  * @date 2019/7/17 12:06
  */
-@Service
+@Service("cityService")
 public class CityServiceImpl implements CityService {
 
     @Autowired

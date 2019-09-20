@@ -20,13 +20,11 @@ import java.util.List;
 /**
  * Created by liangboning on 2019/7/12.
  */
-@Service
+@Service("metroService")
 @AllArgsConstructor
 public class MetroServiceImpl implements MetroService {
 
-    @Autowired
     private CityService cityService;
-    @Autowired
     private VolumeService volumeService;
 
     @Override

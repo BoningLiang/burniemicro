@@ -1,6 +1,5 @@
 package edu.auburn.bzl0048.metro;
 
-import cn.hutool.core.util.StrUtil;
 import org.junit.Test;
 
 public class ParseIntTest {
@@ -18,14 +17,5 @@ public class ParseIntTest {
         }
         System.out.println(time);
 
-    }
-
-
-    @Test
-    public void testStrUtil() {
-        System.out.println(StrUtil.isEmpty(" "));
-        System.out.println(StrUtil.isBlank(" "));
-        System.out.println(StrUtil.isBlank(null));
-        System.out.println(StrUtil.isBlank(""));
     }
 }

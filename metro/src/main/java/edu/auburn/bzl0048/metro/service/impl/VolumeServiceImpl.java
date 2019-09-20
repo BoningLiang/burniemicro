@@ -13,7 +13,7 @@ import java.util.List;
  * @author liangboning
  * @date 2019/7/17 12:06
  */
-@Service
+@Service("volumeService")
 public class VolumeServiceImpl implements VolumeService {
 
     @Autowired
