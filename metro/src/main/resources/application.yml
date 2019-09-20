@@ -10,7 +10,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://39.98.191.147:1111/myeureka/
+      defaultZone: http://39.98.191.147:1111/eureka/
 
 jasypt:
   encryptor:
