@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+io.github.burnieliang.swagger.config.SwaggerAutoConfiguration,\
+io.github.burnieliang.swagger.config.SwaggerProperties
