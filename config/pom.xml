@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>burnie-micro</artifactId>
-        <groupId>edu.auburn.bzl0048</groupId>
+        <groupId>io.github.burnieliang</groupId>
         <version>1.0.0</version>
     </parent>
     <name>config</name>
@@ -27,7 +27,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>edu.auburn.bzl0048.config.ConfigApplication</mainClass>
+                    <mainClass>io.github.burnieliang.config.ConfigApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

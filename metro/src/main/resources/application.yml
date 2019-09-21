@@ -15,3 +15,15 @@ eureka:
 jasypt:
   encryptor:
     password: metro
+
+swagger:
+  enable: true
+  title: 'metro'
+  description: 'description'
+  version: '1.0.0'
+  contact:
+    name: 'Metro'
+    email: '952735135@qq.com'
+    url: 'http://www.baidu.com'
+  ignore:
+    urls: /swagger-ui.html,/v2/api-docs,/webjars/**,/swagger-resources/**

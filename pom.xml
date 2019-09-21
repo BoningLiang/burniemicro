@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>edu.auburn.bzl0048</groupId>
+    <groupId>io.github.burnieliang</groupId>
     <artifactId>burnie-micro</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0</version>
@@ -20,8 +20,7 @@
         <module>eureka</module>
         <module>metro</module>
         <module>config</module>
-        <module>gateway</module>
-        <module>metrobaidu</module>
+        <module>commons</module>
     </modules>
 
     <properties>
