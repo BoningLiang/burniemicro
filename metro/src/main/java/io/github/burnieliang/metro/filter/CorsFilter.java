@@ -32,7 +32,7 @@ public class CorsFilter implements Filter {
                 "http://localhost:8083",
                 "http://localhost:8084",
                 "http://localhost:8085"));
-        Enumeration<String> origins = httpServletRequest.getHeaders("Origin");
+        Enumeration<String> origins = httpServletRequest.getHeaders("Location");
         httpServletResponse.setHeader("Access-Control-Allow-Headers", "*");
         httpServletResponse.setHeader("Access-Control-Max-Age", "3600");
         httpServletResponse.setHeader("Access-Control-Allow-Credentials", "true");
@@ -40,7 +40,7 @@ public class CorsFilter implements Filter {
         if (origins.hasMoreElements()) {
             String origin = origins.nextElement();
             if (allowOrigins.contains(origin)) {
-                httpServletResponse.setHeader("Access-Control-Allow-Origin", origin);
+                httpServletResponse.setHeader("Access-Control-Allow-Location", origin);
             }
         }
         filterChain.doFilter(servletRequest, servletResponse);

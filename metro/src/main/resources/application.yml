@@ -5,12 +5,14 @@ spring:
     name: metro
   datasource:
     url: jdbc:mysql://39.98.191.147:3306/metro?characterEncoding=utf8&useSSL=true
-    username: ENC(gm48/flkFe9hDT2Usl3ytA==)
-    password: ENC(uThfyToshkSVCsOA9vV27nIUSNJ46axK)
-eureka:
-  client:
-    service-url:
-      defaultZone: http://39.98.191.147:1111/eureka/
+    username: beacon
+    password: LBNlc.327712576
+#    username: ENC(gm48/flkFe9hDT2Usl3ytA==)
+#    password: ENC(uThfyToshkSVCsOA9vV27nIUSNJ46axK)
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://39.98.191.147:1111/eureka/
 
 jasypt:
   encryptor:
@@ -24,6 +26,9 @@ swagger:
   contact:
     name: 'Metro'
     email: '952735135@qq.com'
-    url: 'http://www.baidu.com'
+    url: 'http://burnieliang.github.io'
   ignore:
     urls: /swagger-ui.html,/v2/api-docs,/webjars/**,/swagger-resources/**
+
+baidu:
+  ak: ti85Ey5Va4P1dM3wpRQMeGnuBpqTDLKb

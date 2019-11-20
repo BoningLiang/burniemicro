@@ -2,13 +2,25 @@ package io.github.burnieliang.metro.controller;
 
 import io.github.burnieliang.common.entity.Resp;
 import io.github.burnieliang.metro.exception.FileFormatException;
+import io.github.burnieliang.metro.service.BaiduService;
 import io.github.burnieliang.metro.service.MetroService;
+import io.github.burnieliang.metro.utils.ImageUtil;
+import io.github.burnieliang.metro.utils.MetroUtil;
+import io.github.burnieliang.metro.vo.baidu.query.ResponseVO;
+import io.github.burnieliang.metro.vo.metroLine.Line;
 import io.github.burnieliang.metro.vo.requestVOs.AddVolumeVO;
 import io.github.burnieliang.metro.vo.requestVOs.RequestCityVO;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletResponse;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by liangboning on 2019/7/9.
@@ -21,6 +33,11 @@ public class MetroController {
 
     @Autowired
     private MetroService metroService;
+
+    @Autowired
+    private BaiduService baiduService;
+
+    private static final String JPEG = "jpeg";
 
     @GetMapping("/volume/{citycode}")
     public Resp volume(@PathVariable String citycode) throws Exception {
@@ -45,5 +62,27 @@ public class MetroController {
     @PostMapping("/city")
     public Resp city(RequestCityVO requestCityVO) {
         return new Resp<>(metroService.getCityByCityName(requestCityVO.getCityName()));
+    }
+
+    @GetMapping("/image")
+    @SneakyThrows
+    public void image(HttpServletResponse response) {
+        ImageUtil imageUtil = new ImageUtil();
+        BufferedImage bufferedImage = imageUtil.createImage();
+
+        // 转换流信息写出
+        response.setContentType("image/jpeg");
+        response.setStatus(200);
+        ImageIO.write(bufferedImage, JPEG, response.getOutputStream());
+    }
+
+    @GetMapping("/query")
+    @SneakyThrows
+    public Resp query() {
+        ResponseVO responseVO = baiduService.getAll("石家庄");
+        MetroUtil metroUtil = new MetroUtil();
+        List<Line> lines = metroUtil.parseLines(responseVO);
+        metroUtil.sort(lines);
+        return new Resp<>(lines);
     }
 }
