@@ -1,6 +1,9 @@
 package io.github.burnieliang.metro.service.impl;
 
+import com.couchbase.client.java.document.JsonDocument;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.github.burnieliang.metro.dao.BaseDao;
+import io.github.burnieliang.metro.dao.CouchbaseDaoImpl;
 import io.github.burnieliang.metro.service.BaiduService;
 import io.github.burnieliang.metro.vo.baidu.DrivingOutput;
 import io.github.burnieliang.metro.vo.baidu.DrivingRequestVO;
@@ -69,7 +72,16 @@ public class BaiduServiceImpl implements BaiduService {
     }
 
     @Override
-    public ResponseVO getAll(String cityName) throws InterruptedException {
+    public ResponseVO getAll(String cityName) throws InterruptedException, IOException {
+
+        BaseDao baseDao = new CouchbaseDaoImpl("", "", "", "");
+
+        JsonDocument jsonDocument = baseDao.get(cityName);
+        if (jsonDocument != null) {
+            String storedData = jsonDocument.content().toString();
+            return objectMapper.readValue(storedData, ResponseVO.class);
+        }
+
         Integer pageSize = 20;
         Integer pageNum = 0;
         ResponseVO responseVO = get(cityName, null, null, pageSize);
@@ -77,6 +89,7 @@ public class BaiduServiceImpl implements BaiduService {
         if (responseVO != null) {
             Integer total = responseVO.getTotal();
             if (total <= pageSize) {
+                baseDao.upsert(responseVO, cityName);
                 return responseVO;
             } else {
                 for (;;) {
@@ -96,6 +109,7 @@ public class BaiduServiceImpl implements BaiduService {
                 }
             }
             if (responseVO.getResults().size() > 0) {
+                baseDao.upsert(responseVO, cityName);
                 return responseVO;
             }
         }

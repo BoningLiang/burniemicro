@@ -77,13 +77,6 @@ public class MetroUtil {
             if (sortedStations.size() == stationCount) {
                 break;
             }
-//            if (i + 1 > stations.size()) {
-//                if (direction < 0) {
-//                    throw new Exception("排序错误");
-//                }
-//                direction = -direction;
-//                i = 0;
-//            }
             if (i == 0) {
                 sortedStations.add(stations.get(i));
                 currentStation = new Station();
@@ -106,17 +99,10 @@ public class MetroUtil {
                         minDistance = distance;
                         flag = j;
                     }
-//                    if (station1.getName().equals("朝晖桥")) {
-//                        System.out.println(currentStation.getName() + " " + station2.getName() + " " + distance);
-//                    }
-//                    if (station1.getName().equals("朝晖桥") && station2.getName().equals("谈固")) {
-//                        System.out.println(currentStation.getName() + " " + station2.getName() + " " + distance);
-//                    }
-//                    if (station1.getName().equals("白佛")) {
-//                        System.out.println(currentStation.getName() + " " + station2.getName() + " " + distance);
-//                    }
                 }
-                if (direction > 0 && !currentStation.getName().equals(startStation.getName()) && minDistance > getDistance(currentStation.getLocation().getLat(), currentStation.getLocation().getLng(), startStation.getLocation().getLat(), startStation.getLocation().getLng())) {
+                if (direction > 0
+                        && !currentStation.getName().equals(startStation.getName())
+                        && minDistance > getDistance(currentStation.getLocation().getLat(), currentStation.getLocation().getLng(), startStation.getLocation().getLat(), startStation.getLocation().getLng())) {
                     currentStation = startStation;
                     direction = -direction;
                     continue;

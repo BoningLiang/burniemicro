@@ -116,6 +116,11 @@
             <artifactId>hutool-all</artifactId>
             <version>4.4.5</version>
         </dependency>
+        <dependency>
+            <groupId>com.couchbase.client</groupId>
+            <artifactId>java-client</artifactId>
+            <version>2.7.9</version>
+        </dependency>
         <!--        <dependency>-->
 <!--            <groupId>edu.auburn.bzl0048</groupId>-->
 <!--            <artifactId>common</artifactId>-->
