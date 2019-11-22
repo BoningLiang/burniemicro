@@ -6,6 +6,7 @@ import io.github.burnieliang.metro.service.BaiduService;
 import io.github.burnieliang.metro.service.MetroService;
 import io.github.burnieliang.metro.utils.ImageUtil;
 import io.github.burnieliang.metro.utils.MetroUtil;
+import io.github.burnieliang.metro.vo.baidu.Location;
 import io.github.burnieliang.metro.vo.baidu.query.ResponseVO;
 import io.github.burnieliang.metro.vo.metroLine.Line;
 import io.github.burnieliang.metro.vo.requestVOs.AddVolumeVO;
@@ -68,8 +69,26 @@ public class MetroController {
     @SneakyThrows
     public void image(HttpServletResponse response) {
         ImageUtil imageUtil = new ImageUtil();
-        BufferedImage bufferedImage = imageUtil.createImage();
+//        BufferedImage bufferedImage = imageUtil.createImage();
+        Location location1 = new Location();
+        Location location2 = new Location();
+        //25.0886787571,98.6569377825 云南
+        //40.3046716172,116.6746654443 北京
+        location1.setLat(25.0886787571);
+        location1.setLng(98.6569377825);
+        location2.setLat(40.3046716172);
+        location2.setLng(116.6746654443);
+        BufferedImage bufferedImage = imageUtil.create(location1, location2);
+        // 转换流信息写出
+        response.setContentType("image/jpeg");
+        response.setStatus(200);
+        ImageIO.write(bufferedImage, JPEG, response.getOutputStream());
+    }
 
+    @GetMapping("/image2")
+    public void image2(HttpServletResponse response) throws Exception{
+        ImageUtil imageUtil = new ImageUtil();
+        BufferedImage bufferedImage = imageUtil.createImage();
         // 转换流信息写出
         response.setContentType("image/jpeg");
         response.setStatus(200);
@@ -84,5 +103,15 @@ public class MetroController {
         List<Line> lines = metroUtil.parseLines(responseVO);
         metroUtil.sort(lines);
         return new Resp<>(lines);
+    }
+
+    @GetMapping("/metroimage")
+    public void metroimage(HttpServletResponse response) throws Exception{
+        ImageUtil imageUtil = new ImageUtil();
+        BufferedImage bufferedImage = imageUtil.createImage();
+        // 转换流信息写出
+        response.setContentType("image/jpeg");
+        response.setStatus(200);
+        ImageIO.write(bufferedImage, JPEG, response.getOutputStream());
     }
 }
