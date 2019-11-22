@@ -8,6 +8,8 @@ import io.github.burnieliang.metro.vo.image.Size;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+import java.util.List;
+
 public class ImageUtil {
 
     private double times;
@@ -43,6 +45,30 @@ public class ImageUtil {
         ImageXY imageXY2 = imageUtil.getXY(location2);
 
         graphics2D.drawLine(imageXY1.getX(), imageXY1.getY(), imageXY2.getX(), imageXY2.getY());
+
+        return bufferedImage;
+    }
+
+    public BufferedImage create(List<List<Location>> listLocations) {
+        CoordinateRange range = new CoordinateRange();
+        range.setMinLat(19.3749340334);
+        range.setMaxLat(47.9878106274);
+        range.setMinLon(83.8007320375);
+        range.setMaxLon(134.2014348650);
+
+        ImageUtil imageUtil = new ImageUtil();
+        Size size = this.getSize(range, 100);
+        BufferedImage bufferedImage = new BufferedImage(size.getWidth(), size.getHeight(), BufferedImage.TYPE_INT_ARGB);
+        Graphics2D graphics2D = bufferedImage.createGraphics();
+
+        listLocations.forEach(locations -> {
+            for (int i = 1; i < locations.size(); i++) {
+                ImageXY imageXY1 = imageUtil.getXY(locations.get(i-1));
+                ImageXY imageXY2 = imageUtil.getXY(locations.get(i));
+
+                graphics2D.drawLine(imageXY1.getX(), imageXY1.getY(), imageXY2.getX(), imageXY2.getY());
+            }
+        });
 
         return bufferedImage;
     }

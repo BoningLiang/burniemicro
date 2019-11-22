@@ -108,6 +108,26 @@ public class MetroController {
     @GetMapping("/metroimage")
     public void metroimage(HttpServletResponse response) throws Exception{
         ImageUtil imageUtil = new ImageUtil();
+
+        Location location1 = new Location();
+        Location location2 = new Location();
+        Location location3 = new Location();
+        Location location4 = new Location();
+        //25.0886787571,98.6569377825 云南
+        //40.3046716172,116.6746654443 北京
+        location1.setLat(25.0886787571);
+        location1.setLng(98.6569377825);
+        location2.setLat(40.3046716172);
+        location2.setLng(116.6746654443);
+
+        location3.setLat(40.3046716172);
+        location3.setLng(98.6569377825);
+
+        location4.setLat(25.0886787571);
+        location4.setLng(116.6746654443);
+
+
+
         BufferedImage bufferedImage = imageUtil.createImage();
         // 转换流信息写出
         response.setContentType("image/jpeg");
